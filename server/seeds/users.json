@@ -1,0 +1,140 @@
+[
+  {
+    "firstname": "Sarah",
+    "lastname": "Chen",
+    "username": "sarah_chen",
+    "email": "sarah.chen@email.com",
+    "password": "password001",
+    "title": "Senior Software Engineer",
+    "skills": [
+      "JavaScript",
+      "React",
+      "Node.js",
+      "System Design",
+      "Career Coaching"
+    ]
+  },
+  {
+    "firstname": "Marcus",
+    "lastname": "Okafor",
+    "username": "marcus_okafor",
+    "email": "marcus.okafor@email.com",
+    "password": "password002",
+    "title": "Product Manager",
+    "skills": [
+      "Product Strategy",
+      "Agile",
+      "User Research",
+      "Roadmapping",
+      "Stakeholder Management"
+    ]
+  },
+  {
+    "firstname": "Priya",
+    "lastname": "Sharma",
+    "username": "priya_sharma",
+    "email": "priya.sharma@email.com",
+    "password": "password003",
+    "title": "UX/UI Design Lead",
+    "skills": [
+      "Figma",
+      "User Testing",
+      "Prototyping",
+      "Design Systems",
+      "Accessibility"
+    ]
+  },
+  {
+    "firstname": "James",
+    "lastname": "Whitfield",
+    "username": "james_whitfield",
+    "email": "james.whitfield@email.com",
+    "password": "password004",
+    "title": "Data Science Manager",
+    "skills": [
+      "Python",
+      "Machine Learning",
+      "SQL",
+      "Data Visualization",
+      "Statistics"
+    ]
+  },
+  {
+    "firstname": "Elena",
+    "lastname": "Vasquez",
+    "username": "elena_vasquez",
+    "email": "elena.vasquez@email.com",
+    "password": "password005",
+    "title": "DevOps Engineer",
+    "skills": ["AWS", "Kubernetes", "Docker", "CI/CD", "Terraform"]
+  },
+  {
+    "firstname": "Daniel",
+    "lastname": "Nguyen",
+    "username": "daniel_nguyen",
+    "email": "daniel.nguyen@email.com",
+    "password": "password006",
+    "title": "Full Stack Developer",
+    "skills": ["TypeScript", "Vue.js", "PostgreSQL", "GraphQL", "REST APIs"]
+  },
+  {
+    "firstname": "Amara",
+    "lastname": "Diallo",
+    "username": "amara_diallo",
+    "email": "amara.diallo@email.com",
+    "password": "password007",
+    "title": "Startup Founder & Advisor",
+    "skills": [
+      "Entrepreneurship",
+      "Fundraising",
+      "Pitch Decks",
+      "Go-to-Market Strategy",
+      "Team Building"
+    ]
+  },
+  {
+    "firstname": "Ryan",
+    "lastname": "Kowalski",
+    "username": "ryan_kowalski",
+    "email": "ryan.kowalski@email.com",
+    "password": "password008",
+    "title": "Cybersecurity Architect",
+    "skills": [
+      "Penetration Testing",
+      "Network Security",
+      "OWASP",
+      "Cloud Security",
+      "Compliance"
+    ]
+  },
+  {
+    "firstname": "Mei",
+    "lastname": "Tanaka",
+    "username": "mei_tanaka",
+    "email": "mei.tanaka@email.com",
+    "password": "password009",
+    "title": "AI/ML Research Engineer",
+    "skills": [
+      "TensorFlow",
+      "PyTorch",
+      "NLP",
+      "Computer Vision",
+      "Research Writing"
+    ]
+  },
+  {
+    "firstname": "Omar",
+    "lastname": "Hassan",
+    "username": "omar_hassan",
+    "email": "omar.hassan@email.com",
+    "password": "password010",
+    "title": "Engineering Manager",
+    "skills": [
+      "Technical Leadership",
+      "Code Review",
+      "Mentorship",
+      "OKRs",
+      "Cross-functional Collaboration"
+    ]
+  }
+]
