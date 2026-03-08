@@ -4,7 +4,7 @@ const userSeeds = require("./users.json");
 const cleanDB = require("./cleanDB");
 
 db.once("open", async () => {
-  await cleanDB("User", "mentii");
+  await cleanDB("User", "users");
 
   await User.create(userSeeds);
 

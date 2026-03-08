@@ -8,6 +8,7 @@ const typeDefs = `
     title: String
     menteePosts: [MenteePost]!
     mentorPosts: [MentorPost]!
+    status: String
   }
     
   type MenteePost {
@@ -24,7 +25,7 @@ const typeDefs = `
     author: User
   }
 
-  query {
+  type Query {
     users: [User]
     user(username: String!): User
   }

@@ -1,4 +1,7 @@
 const { Schema, model } = require("mongoose");
+const bcrypt = require("bcrypt");
+
+const SALT_FACTOR = 10;
 
 const userSchema = new Schema(
   {
@@ -50,6 +53,11 @@ const userSchema = new Schema(
         ref: "MentorPost",
       },
     ],
+    status: {
+      type: String,
+      enum: ["mentor", "mentee", "both"],
+      default: "mentee",
+    },
   },
   {
     timestamps: true,
@@ -57,6 +65,27 @@ const userSchema = new Schema(
     id: false,
   },
 );
+
+userSchema.pre("save", async function () {
+  const user = this;
+
+  if (!user.isModified("password")) {
+    return;
+  }
+
+  try {
+    const salt = await bcrypt.genSalt(SALT_FACTOR);
+
+    user.password = await bcrypt.hash(user.password, salt);
+  } catch (err) {
+    return;
+  }
+});
+
+// compare the incoming password with the hashed password
+userSchema.methods.isCorrectPassword = async function (password) {
+  return bcrypt.compare(password, this.password);
+};
 
 const User = model("User", userSchema);
 

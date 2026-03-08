@@ -12,7 +12,8 @@
       "Node.js",
       "System Design",
       "Career Coaching"
-    ]
+    ],
+    "status": "mentor"
   },
   {
     "firstname": "Marcus",
@@ -42,7 +43,8 @@
       "Prototyping",
       "Design Systems",
       "Accessibility"
-    ]
+    ],
+    "status": "both"
   },
   {
     "firstname": "James",
@@ -57,7 +59,8 @@
       "SQL",
       "Data Visualization",
       "Statistics"
-    ]
+    ],
+    "status": "mentor"
   },
   {
     "firstname": "Elena",
@@ -120,7 +123,8 @@
       "NLP",
       "Computer Vision",
       "Research Writing"
-    ]
+    ],
+    "status": "mentor"
   },
   {
     "firstname": "Omar",
