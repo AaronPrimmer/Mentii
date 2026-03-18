@@ -1,6 +1,8 @@
 const typeDefs = `
   type User {
     _id: ID
+    firstname: String
+    lastname: String
     username: String
     email: String
     password: String
@@ -9,6 +11,7 @@ const typeDefs = `
     menteePosts: [MenteePost]!
     mentorPosts: [MentorPost]!
     status: String
+    token: String
   }
     
   type MenteePost {
@@ -25,9 +28,21 @@ const typeDefs = `
     author: User
   }
 
+  type Auth {
+    token: String
+    user: User
+  }
+
   type Query {
     users: [User]
     user(username: String!): User
+    userByStatus(status: String!): [User]
+    menteePosts: [MenteePost]
+    mentorPosts: [MentorPost]
+  }
+
+  type Mutation {
+    addUser(firstname: String!, lastname: String!, username: String!, email: String!, password: String!, status: String!, skills: [String], title: String): Auth
   }
 `;
 

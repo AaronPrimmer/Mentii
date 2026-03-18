@@ -58,6 +58,10 @@ const userSchema = new Schema(
       enum: ["mentor", "mentee", "both"],
       default: "mentee",
     },
+    token: {
+      type: String,
+      default: null,
+    },
   },
   {
     timestamps: true,
