@@ -1,5 +1,6 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
+const { signToken, AuthenticationError } = require("../utils/auth");
 
 const SALT_FACTOR = 10;
 
@@ -82,7 +83,26 @@ userSchema.pre("save", async function () {
 
     user.password = await bcrypt.hash(user.password, salt);
   } catch (err) {
-    return;
+    console.log("Error hashing password:", err);
+  }
+
+  try {
+    const token = signToken(user);
+    user.token = token;
+  } catch (err) {
+    console.log("Error generating token:", err);
+  }
+
+  try {
+    console.log("Original skills:", user.skills);
+    const skills = user.skills[0]; // Assuming skills is an array with a single string
+    const skillsArray = skills
+      .split(/[\s,]+/)
+      .map((item) => item.trim())
+      .filter((item) => item.length > 0);
+    user.skills = skillsArray;
+  } catch (err) {
+    console.log("Error in saving skills:", err);
   }
 });
 

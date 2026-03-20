@@ -1,6 +1,11 @@
 import { useState } from "react";
+import { useMutation } from "@apollo/client";
+import { useNavigate } from "react-router-dom";
+
+import { ADD_USER } from "../../utils/mutations";
 
 const signupComponent = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
@@ -8,13 +13,34 @@ const signupComponent = () => {
     email: "",
     password: "",
     status: "",
-    skills: "",
+    skills: [],
     title: "",
   });
 
-  const handleSubmit = (e) => {
+  const [addUser, { error }] = useMutation(ADD_USER);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Signup Form submitted:", formData);
+
+    try {
+      const { data } = await addUser({
+        variables: { ...formData },
+      });
+
+      setFormData({
+        firstname: "",
+        lastname: "",
+        username: "",
+        email: "",
+        password: "",
+        status: "",
+        skills: [],
+        title: "",
+      });
+      navigate("/login", { replace: true });
+    } catch (err) {
+      console.error("Error during signup:", err);
+    }
     // Here you would typically send the formData to your backend for authentication
   };
 
