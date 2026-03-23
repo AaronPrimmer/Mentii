@@ -9,6 +9,7 @@ import Profile from "./pages/Profile";
 import Error from "./pages/Error";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Logout from "./pages/Logout";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "signup",
         element: <Signup />,
+      },
+      {
+        path: "logout",
+        element: <Logout />,
       },
     ],
   },

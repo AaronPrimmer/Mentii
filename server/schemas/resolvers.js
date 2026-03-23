@@ -24,6 +24,34 @@ const resolvers = {
     },
   },
   Mutation: {
+    login: async (parent, { username, password }) => {
+      const user = await User.findOne({ username });
+      if (!user) {
+        throw new AuthenticationError("No user found with this email address");
+      } else {
+        const correctPw = await user.isCorrectPassword(password);
+        if (!correctPw) {
+          throw new AuthenticationError("Incorrect password");
+        }
+        const token = signToken(user);
+        const updateToken = await User.findOneAndUpdate(
+          { username },
+          { token },
+          { new: true },
+        );
+        return { token, user };
+      }
+    },
+    logout: async (parent, { username }) => {
+      const user = await User.findOne({ username });
+      if (!user) {
+        throw new AuthenticationError("No user found with this email address");
+      } else {
+        user.token = null;
+        await user.save();
+        return true;
+      }
+    },
     addUser: async (
       parent,
       { firstname, lastname, username, email, password, status, skills, title },

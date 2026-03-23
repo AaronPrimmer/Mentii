@@ -1,10 +1,14 @@
 import { useState } from "react";
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../../utils/mutations";
 
 const loginComponent = () => {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
   });
+
+  const [loginUser, { error }] = useMutation(LOGIN_USER);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -14,9 +18,20 @@ const loginComponent = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    try {
+      const { data } = await loginUser({
+        variables: { ...formData },
+      });
+      localStorage.setItem("user-info", JSON.stringify(data.login.user)); // Store token in localStorage
+      console.log("Login successful:", data);
+      // Handle successful login, e.g., store token, redirect, etc.
+      window.location.href = "/"; // Redirect to home page after successful login
+    } catch (err) {
+      console.error("Error during login:", err);
+    }
+
     setFormData({
       username: "",
       password: "",

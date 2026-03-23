@@ -3,6 +3,7 @@ const { ApolloServer } = require("@apollo/server");
 const { expressMiddleware } = require("@apollo/server/express4");
 const path = require("path");
 const { authMiddleware } = require("./utils/auth");
+const session = require("express-session");
 
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
@@ -16,6 +17,16 @@ const server = new ApolloServer({
 
 const startApolloServer = async () => {
   await server.start();
+
+  app.use(
+    session({
+      secret:
+        "2fAqe3WhgXwJynjm9iVITfo7K33cqwHDnVv5RKfOzqMgeQA0segc_GhmHCJrMs9q-jwSk6fFbvdEvCDftCr6Ow", // Use a strong secret
+      resave: false,
+      saveUninitialized: false,
+      cookie: { maxAge: 1209600000 }, // Session duration (e.g., 2 weeks in milliseconds)
+    }),
+  );
 
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
