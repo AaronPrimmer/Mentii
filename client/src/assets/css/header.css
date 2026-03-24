@@ -17,3 +17,13 @@
   flex-direction: row;
   gap: 20px;
 }
+
+.header-nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.header-nav a:hover {
+  color: #00a9c1;
+}

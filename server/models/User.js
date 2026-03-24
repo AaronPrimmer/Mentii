@@ -56,7 +56,7 @@ const userSchema = new Schema(
     ],
     status: {
       type: String,
-      enum: ["mentor", "mentee", "both"],
+      enum: ["mentor", "mentee"],
       default: "mentee",
     },
     token: {

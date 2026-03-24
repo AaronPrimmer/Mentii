@@ -54,3 +54,31 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const CREATE_MENTOR_POST = gql`
+  mutation CreateMentorPost(
+    $title: String!
+    $content: String!
+    $username: String!
+  ) {
+    createMentorPost(title: $title, content: $content, username: $username) {
+      author {
+        username
+      }
+    }
+  }
+`;
+
+export const CREATE_MENTEE_POST = gql`
+  mutation CreateMenteePost(
+    $title: String!
+    $content: String!
+    $username: String!
+  ) {
+    createMenteePost(title: $title, content: $content, username: $username) {
+      author {
+        username
+      }
+    }
+  }
+`;

@@ -70,6 +70,34 @@ const resolvers = {
       user.token = token;
       return { token, user };
     },
+    createMenteePost: async (parent, { title, content, username }) => {
+      const user = await User.findOne({ username: username });
+      if (!user) {
+        throw new AuthenticationError("No user found with this username");
+      }
+      const menteePost = await MenteePost.create({
+        title: title,
+        content: content,
+        author: user._id,
+      });
+      user.menteePosts.push(menteePost._id);
+      await user.save();
+      return menteePost;
+    },
+    createMentorPost: async (parent, { title, content, username }) => {
+      const user = await User.findOne({ username: username });
+      if (!user) {
+        throw new AuthenticationError("No user found with this username");
+      }
+      const mentorPost = await MentorPost.create({
+        title: title,
+        content: content,
+        author: user._id,
+      });
+      user.mentorPosts.push(mentorPost._id);
+      await user.save();
+      return mentorPost;
+    },
   },
 };
 
