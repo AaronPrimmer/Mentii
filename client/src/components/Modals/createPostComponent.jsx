@@ -1,8 +1,11 @@
 import { useMutation } from "@apollo/client";
-import { CREATE_MENTOR_POST, CREATE_MENTEE_POST } from "../../utils/mutations";
+import { CREATE_MENTOR_POST } from "../../utils/mutations";
+import { useState } from "react";
 
 const CreatePostComponent = ({ setIsModalOpen }) => {
   const userInfo = JSON.parse(localStorage.getItem("user-info"));
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
 
   const [createMentorPost] = useMutation(CREATE_MENTOR_POST, {
     onCompleted: () => {
@@ -13,37 +16,18 @@ const CreatePostComponent = ({ setIsModalOpen }) => {
     },
   });
 
-  const [createMenteePost] = useMutation(CREATE_MENTEE_POST, {
-    onCompleted: () => {
-      window.location.reload();
-    },
-    onError: (err) => {
-      console.error("Error creating mentee post:", err);
-    },
-  });
-
   if (!userInfo) {
     document.location.href = "/login";
   }
 
   const handleCreatePost = () => {
-    if (userInfo.status === "mentor") {
-      createMentorPost({
-        variables: {
-          title: document.getElementById("title").value,
-          content: document.getElementById("content").value,
-          username: userInfo.username,
-        },
-      });
-    } else if (userInfo.status === "mentee") {
-      createMenteePost({
-        variables: {
-          title: document.getElementById("title").value,
-          content: document.getElementById("content").value,
-          username: userInfo.username,
-        },
-      });
-    }
+    createMentorPost({
+      variables: {
+        title: title,
+        content: content,
+        username: userInfo.username,
+      },
+    });
 
     setIsModalOpen(false);
   };
@@ -61,9 +45,20 @@ const CreatePostComponent = ({ setIsModalOpen }) => {
         >
           <div className="form-group">
             <label htmlFor="title">Title:</label>
-            <input type="text" id="title" name="title" />
+            <input
+              type="text"
+              id="title"
+              name="title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
             <label htmlFor="content">Post:</label>
-            <textarea id="content" name="content"></textarea>
+            <textarea
+              id="content"
+              name="content"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+            ></textarea>
           </div>
           <div className="button-group">
             <button type="submit">Post</button>

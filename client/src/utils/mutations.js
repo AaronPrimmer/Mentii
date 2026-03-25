@@ -69,16 +69,16 @@ export const CREATE_MENTOR_POST = gql`
   }
 `;
 
-export const CREATE_MENTEE_POST = gql`
-  mutation CreateMenteePost(
-    $title: String!
-    $content: String!
-    $username: String!
-  ) {
-    createMenteePost(title: $title, content: $content, username: $username) {
-      author {
-        username
-      }
-    }
-  }
-`;
+// export const CREATE_MENTEE_POST = gql`
+//   mutation CreateMenteePost(
+//     $title: String!
+//     $content: String!
+//     $username: String!
+//   ) {
+//     createMenteePost(title: $title, content: $content, username: $username) {
+//       author {
+//         username
+//       }
+//     }
+//   }
+// `;

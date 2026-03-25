@@ -98,13 +98,10 @@ const signupComponent = () => {
       >
         <legend>Role:</legend>
         <label>
-          <input type="checkbox" name="role" value="mentor" /> Mentor
+          <input type="radio" name="role" value="mentor" /> Mentor
         </label>
         <label>
-          <input type="checkbox" name="role" value="mentee" /> Mentee
-        </label>
-        <label>
-          <input type="checkbox" name="role" value="both" /> Both
+          <input type="radio" name="role" value="mentee" /> Mentee
         </label>
       </fieldset>
       <label htmlFor="skills">Skills:</label>

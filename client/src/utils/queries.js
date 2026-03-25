@@ -7,6 +7,7 @@ export const QUERY_POSTS = gql`
         username
         skills
         status
+        title
       }
       content
       title

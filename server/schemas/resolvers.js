@@ -20,7 +20,9 @@ const resolvers = {
       return MenteePost.find().populate("author");
     },
     mentorPosts: async () => {
-      return MentorPost.find().populate("author");
+      return await MentorPost.find().limit(20).populate("author").sort({
+        createdAt: -1,
+      });
     },
   },
   Mutation: {

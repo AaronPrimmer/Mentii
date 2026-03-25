@@ -27,6 +27,14 @@
   background-color: #0097a7;
 }
 
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -56,6 +64,18 @@
   gap: 10px;
 }
 
+.button-group button:nth-child(1) {
+  padding: 10px 20px;
+  background-color: #00a9c1;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.button-group button:nth-child(1):hover {
+  background-color: #0097a7;
+}
+
 .button-group button:nth-child(2) {
   padding: 10px 20px;
   background-color: #862400;
@@ -83,7 +103,7 @@
   align-items: flex-start;
   gap: 5px;
   width: 100%;
-  padding: 10px 10px;
+  padding: 10px 0;
 }
 
 .form-group label {
@@ -109,4 +129,78 @@
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: vertical;
+}
+
+.form-group textarea:focus {
+  border-color: #00a9c1;
+  outline: none;
+}
+
+.profiles-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px 20px 100px;
+}
+
+.post-card {
+  background-color: #e6f4f1;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 10px;
+  width: 60%;
+}
+
+.author-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.author-title-mentor {
+  background-color: #00a9c1;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.author-title-mentee {
+  background-color: #bdb7d8;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.skills {
+  background-color: #005c7a;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.skill-sets {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+}
+
+.author-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.author-title span {
+  background-color: #8ec4ca;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
 }

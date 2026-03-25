@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import "../../assets/css/header.css";
+import { useState } from "react";
+import CreatePostComponent from "../Modals/createPostComponent";
 
 function Header() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const userInfo = localStorage.getItem("user-info");
 
   return (
@@ -18,11 +21,19 @@ function Header() {
       <div>
         <nav className="header-nav">
           {userInfo ? (
-            <div>Hello, {JSON.parse(userInfo).firstname}!</div>
+            <div className="logged-in-header-containter">
+              <button
+                className="header-create-button"
+                id="createButton"
+                onClick={() => setIsModalOpen(true)}
+              >
+                Post
+              </button>
+              Hello, {JSON.parse(userInfo).firstname}!
+            </div>
           ) : (
             "Welcome, Guest!"
           )}
-          <Link to="/">Home</Link>
           {!userInfo ? (
             <Link to="/login">Login</Link>
           ) : (
@@ -34,6 +45,11 @@ function Header() {
             </div>
           )}
         </nav>
+        <div className="modal-container">
+          {isModalOpen && (
+            <CreatePostComponent setIsModalOpen={setIsModalOpen} />
+          )}
+        </div>
       </div>
     </header>
   );
