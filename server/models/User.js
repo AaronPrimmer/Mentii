@@ -97,7 +97,7 @@ userSchema.pre("save", async function () {
     console.log("Original skills:", user.skills);
     const skills = user.skills[0]; // Assuming skills is an array with a single string
     const skillsArray = skills
-      .split(/,\\s*|\\s+,/)
+      .split(/[\s,]+/)
       .map((item) => item.trim())
       .filter((item) => item.length > 0);
     user.skills = skillsArray;
