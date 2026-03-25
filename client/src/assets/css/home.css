@@ -139,7 +139,9 @@
 .profiles-container {
   display: flex;
   flex-direction: column;
-  padding: 10px 20px 20px 100px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px 20px 20px;
 }
 
 .post-card {
